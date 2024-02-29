@@ -70,7 +70,7 @@ export default function Recipes() {
                     alt={recipe.title}
                   />
                   <CardContent sx={{ height: "100%" }}>
-                    <Link to={`/recipes/${id}`}>
+                    <Link to={`/recipes/${recipe.id}`}>
                       <Typography gutterBottom variant="h5" component="div">
                         {recipe.title}
                       </Typography>
