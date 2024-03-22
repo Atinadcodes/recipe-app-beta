@@ -62,7 +62,7 @@ export default function Recipes() {
           <img src={loadingicon} />
         ) : recipes.length > 0 ? (
           recipes.map((recipe) => (
-            <Grid key={recipe.id} item xs={4}>
+            <Grid key={recipe._id} item xs={4}>
               <Card sx={{ maxWidth: 345, height: "100%" }}>
                 <CardActionArea sx={{ height: "100%" }}>
                   <CardMedia
@@ -72,7 +72,7 @@ export default function Recipes() {
                     alt={recipe.title}
                   />
                   <CardContent sx={{ height: "100%" }}>
-                    <Link to={`/recipes/${recipe.id}`}>
+                    <Link to={`/recipes/${recipe._id}`}>
                       <Typography gutterBottom variant="h5" component="div">
                         {recipe.title}
                       </Typography>
