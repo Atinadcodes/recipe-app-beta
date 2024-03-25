@@ -1,13 +1,14 @@
 import { AppBar, Button, Toolbar, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography color="inherit" to="/recipes" variant="h6" component={Link} sx={{ flexGrow: 1 }}>
           Recipe App
         </Typography>
-        <Button variant="contained" color="primary">Form</Button>
+        <Button to="/add-recipe" component={Link} variant="contained" color="primary">Add New Recipe</Button>
       </Toolbar>
     </AppBar>
   );

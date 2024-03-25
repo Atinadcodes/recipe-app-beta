@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import useSWR from "swr";
 import loadingicon from "../../assets/images/infinite-spinner.svg";
 import { Container } from "@mui/material";
+import Navbar from "../../components/navbar";
 
 const getRecipe = (...args) => {
   console.log(args);
@@ -15,12 +16,13 @@ const getRecipe = (...args) => {
 export default function Recipe() {
   const { id } = useParams();
   const { data, isLoading } = useSWR(
-    `https://api.spoonacular.com/recipes/${id}/information`,
+    `${process.env.REACT_APP_RECIPE_API_URL}/recipes/${id}`,
     getRecipe
   );
   // console.log (data, isLoading);
   return (
     <>
+    <Navbar/>
       {isLoading ? (
         <img src={loadingicon} />
       ) : (
@@ -28,7 +30,7 @@ export default function Recipe() {
           <h1>{data.title}</h1>
 
           <div dangerouslySetInnerHTML={{ __html: data.summary }} />
-          <img src={data.image}/>
+          <img src={data.image} />
         </Container>
       )}
     </>
